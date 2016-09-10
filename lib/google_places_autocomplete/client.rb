@@ -47,7 +47,7 @@ module GooglePlacesAutocomplete
       end
       
       options = options.delete_if {|key, value| value.nil?}
-      mashup(self.class.get("/autocomplete/json", :query => options.merge(self.default_options)))
+      mashup(self.class.get("/autocomplete/json", query: options.merge(self.default_options), verify: false))
     end
 
     def details(options={})
@@ -64,7 +64,7 @@ module GooglePlacesAutocomplete
         }
       end
 
-      mashup(self.class.get("/details/json", :query => options.merge(self.default_options)))
+      mashup(self.class.get("/details/json", query: options.merge(self.default_options), verify: false))
     end
     
     protected
